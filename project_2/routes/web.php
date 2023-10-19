@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\ShowController;
+use \App\Http\Controllers\UserFormController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,3 +32,19 @@ Route::middleware([
 Route::get('show', [ShowController::class, 'show']);
 
 Route::get('show_view', [ShowController::class, 'showView']);
+
+Route::get('show_data', [ShowController::class, 'showData']);
+
+
+Route::get('/address/{city?}/{street?}/{postalCode?}', function(string $city = '-', string $street = '-', int $postalCode = null){
+    $postalCode = is_null($postalCode) ? 'brak kodu pocztowego' : substr($postalCode, 0, 2).'-'.substr($postalCode, 2, 3);
+    echo <<< SHOW
+      Kod pocztowy: $postalCode<br>
+      Miasto: $city<br>
+      Ulica: $street<hr>
+  SHOW;
+  })->name('adres');
+  
+  Route::redirect('adres/{city?}/{street?}/{postalCode?}', '/address/{city?}/{street?}/{postalCode?}');
+  Route::view('userform', 'forms.user_form');
+  Route::get('UserFormController', [UserFormController::class, 'showForm']);
