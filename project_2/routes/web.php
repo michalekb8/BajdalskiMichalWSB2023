@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\ShowController;
 use \App\Http\Controllers\UserFormController;
+use \App\Http\Controllers\ShowDbController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,3 +49,5 @@ Route::get('/address/{city?}/{street?}/{postalCode?}', function(string $city = '
   Route::redirect('adres/{city?}/{street?}/{postalCode?}', '/address/{city?}/{street?}/{postalCode?}');
   Route::view('userform', 'forms.user_form');
   Route::get('UserFormController', [UserFormController::class, 'showForm']);
+
+  Route::get('db', [ShowDbController::class, 'showDbTable']);
