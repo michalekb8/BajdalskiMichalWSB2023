@@ -5,6 +5,7 @@ use \App\Http\Controllers\ShowController;
 use \App\Http\Controllers\UserFormController;
 use \App\Http\Controllers\ShowDbController;
 use \App\Http\Controllers\CarController;
+use \App\Http\Controllers\UsersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,3 +59,11 @@ Route::get('car', [CarController::class, 'ShowCarTable']);
 Route::view('addUser', 'forms.adduserform');
 
 Route::post('AddUser', [CarController::class, 'AddUser']);
+
+Route::get('showdbtable', [UsersController::class, 'Showdbtable']);
+
+Route::get('show_add_userform', function () {
+    return view('forms.add_user_form');
+});
+
+Route::post('UsersController', [UsersController::class, 'Adduser']);

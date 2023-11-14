@@ -32,7 +32,7 @@
 
     {{ $car->links('pagination::bootstrap-5') }}
 
-    <a href="addUser">Dodaj użytkownika</a>
+    <a href="addUser">Dodaj auto</a>
 </body>
 
 </html>
