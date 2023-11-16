@@ -6,6 +6,7 @@ use \App\Http\Controllers\UserFormController;
 use \App\Http\Controllers\ShowDbController;
 use \App\Http\Controllers\CarController;
 use \App\Http\Controllers\UsersController;
+use \App\Http\Controllers\CreateFakeData;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,3 +68,5 @@ Route::get('show_add_userform', function () {
 });
 
 Route::post('UsersController', [UsersController::class, 'Adduser']);
+
+Route::get('showFakeuser', [CreateFakeData::class, 'Show']);
