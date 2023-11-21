@@ -8,6 +8,7 @@ use \App\Http\Controllers\CarController;
 use \App\Http\Controllers\UsersController;
 use \App\Http\Controllers\CreateFakeData;
 use \App\Http\Controllers\FormController;
+use \App\Http\Controllers\ArticlesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,3 +78,9 @@ Route::view('first-page', 'first-page');
 Route::post('second-page', [FormController::class, 'secondPage']);
 
 Route::get('third-page', [FormController::class, 'thirdPage']);
+
+Route::get('articles/index', [ArticlesController::class, 'index']);
+
+Route::view('addarticles', 'articles.create');
+
+Route::post('/articles', [ArticlesController::class, 'store'])->name('articles.store');
